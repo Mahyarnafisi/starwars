@@ -1,13 +1,103 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+  font-family: "Noto Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: #000000;
+  color: var(--color-white);
+}
+
+li {
+  list-style: none;
+}
+button {
+  padding: 1rem 3rem;
+  height: 5.2rem;
+  border-radius: 999px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  animation: fade 1s;
+}
+.button-primary {
+  background-color: #fddd39;
+  color: var(--color-dark);
+  border: none;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--color);
+}
+h1 {
+  letter-spacing: -0.1rem;
+}
+
+:root {
+  --color-black: #000000;
+  --color-yellow: #fddd39;
+  --color-dark: #1d1e1f;
+  --color-blue: #1786eb;
+  --color-gray: #c3c3c3;
+  --color-white: #ffffff;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 85.375em) {
+  html {
+    font-size: 56%;
+  }
+}
+
+@media only screen and (max-width: 64em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 48em) {
+  html {
+    font-size: 43%;
+  }
+}
+
+@media only screen and (max-width: 36em) {
+  html {
+    font-size: 37%;
+  }
+}
+
+/* Animations */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

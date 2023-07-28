@@ -1,0 +1,126 @@
+.movieItem {
+  position: relative;
+  width: 100%;
+  padding: 4rem 5vw;
+  background-color: #00000045;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow-y: scroll;
+  animation: fadeIn 1s;
+}
+.movieItem::-webkit-scrollbar {
+  display: none;
+}
+.movieItem button {
+  margin-top: auto;
+  margin: 2rem;
+}
+
+.title {
+  font-size: 3.6rem;
+  animation: fadeIn 3s;
+}
+.releaseDate {
+  font-size: 2.8rem;
+  font-weight: 600;
+  animation: fadeIn 3s;
+}
+
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.listItem {
+  position: relative;
+  background: linear-gradient(33deg, #1f1f1f 25%, #1c1c1c 100%);
+  box-shadow: 0 1rem 3rem #00000015;
+  border-left: 2px solid #ffffff25;
+  border-top: 2px solid #ffffff25;
+  border-radius: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.2s ease-in-out;
+  min-height: 22rem;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+.itemTag {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #4c4c4c;
+  background-color: #4c4c4c35;
+  box-shadow: 0 0 1rem #00000099;
+  overflow: hidden;
+  width: 3.2rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.6s ease-in-out;
+  transition: box-shadow 1.5s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+.listItem:hover {
+  filter: brightness(110%);
+  box-shadow: 0 0rem 1rem #ffffff60;
+  color: #fade4b;
+}
+
+.listItem:hover .itemTag {
+  background-color: #4c4c4c65;
+  box-shadow: 0 0 1rem #00000099;
+  color: #6c6c66;
+}
+
+.loading {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 0.4rem;
+  /* border: 2px solid var(--color-yellow); */
+  color: var(--color-yellow);
+  font-size: 2.1rem;
+}
+.loading::after {
+  content: "";
+  background-color: var(--color-yellow);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loading 6s alternate ease-in;
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

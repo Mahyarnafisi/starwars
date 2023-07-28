@@ -1,0 +1,10 @@
+.footer {
+  background-color: var(--color-black);
+  box-shadow: 0 -3rem 15rem #000000;
+  padding: 4rem 5vw;
+  width: 100%;
+  z-index: 100;
+}
+.link {
+  color: var(--color-yellow);
+}

@@ -1,0 +1,27 @@
+.header {
+  /* border-bottom: 3px dotted lightblue; */
+  width: 100%;
+  box-shadow: 0 1rem 12rem #00000099;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 5vw;
+  background-color: var(--color-black);
+  z-index: 100;
+}
+
+.header__logo img {
+  width: 35%;
+  animation: fade 1s;
+}
+
+/* Animations */
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
