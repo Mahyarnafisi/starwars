@@ -6,9 +6,9 @@ import ListItem from "../List/ListItem";
 function Main(props) {
   return (
     <div className={mainStyle.main}>
-      {props.fetchedData.map((item) => {
+      {props.fetchedData.map((item, i) => {
         return (
-          <Link key={props.fetchedData.episode_id} className={mainStyle.link} to={`/${item.episode_id}`}>
+          <Link key={i} className={mainStyle.link} to={`/${item.episode_id}`}>
             <h2 className={mainStyle.title}>{item.title}</h2>
           </Link>
         );

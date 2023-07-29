@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import Loading from "./components/Loading/Loading";
 import Main from "./components/Main/Main";
 import Error from "./components/Pages/Error";
 import Footer from "./components/Footer/Footer";
@@ -21,32 +22,30 @@ function App() {
       const data = await response.json();
       const dataResults = data.results;
       setFetchedData(dataResults);
+
+      //Modifying fetched data into a new object
       const charactersData = [];
       for (const key in dataResults) {
         charactersData.push({ id: dataResults[key].episode_id, characters: dataResults[key].characters });
       }
       setCharactersData(charactersData);
+      //
+      setIsLoading(false);
     } catch (error) {
       setFetchError(false);
       console.log("error");
     }
-    setIsLoading(false);
   }, []);
 
   useEffect(() => {
-    console.log("useffect");
     fetchDataHandler();
   }, [fetchDataHandler]);
   //
-  const episodeNum = fetchedData.map((item) => {
-    return {
-      episode_id: item.episode_id,
-    };
-  });
 
   return (
     <div className="App">
       <Header />
+      {isLoading && <Loading />}
       <Routes>
         <Route path="/" element={<Main fetchedData={fetchedData} />} />
         <Route path="/:movieId" element={<MovieItem fetchedData={fetchedData} charactersData={charactersData} />}></Route>
