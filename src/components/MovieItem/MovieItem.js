@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import movieItemStyle from "./MovieItem.module.css";
-import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
-import Loading from "../Loading/Loading";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 function MovieItem(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState(false);
@@ -9,7 +9,7 @@ function MovieItem(props) {
   const [charName, setCharName] = useState();
   const navigate = useNavigate();
   const { movieId } = useParams();
-  console.log(movieId);
+  // Redux
 
   //
   const charactersItem = profileData.find((item) => item.id === parseInt(movieId));
@@ -17,7 +17,7 @@ function MovieItem(props) {
 
   const profileDataFetchHandler = useCallback(async () => {
     setFetchError(false);
-    setIsLoading(true);
+
     try {
       const response = await Promise.all(characters.map((url) => fetch(url)));
 
@@ -26,8 +26,8 @@ function MovieItem(props) {
     } catch (error) {
       setFetchError(error.message);
       console.log(error.message);
+      return;
     }
-    setIsLoading(false);
   }, []);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ function MovieItem(props) {
         </div>
       )}
 
-      {!isLoading && charName && (
+      {charName && (
         <button className="button-primary" onClick={() => navigate(-1)}>
           get back to home
         </button>
