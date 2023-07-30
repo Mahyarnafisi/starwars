@@ -7,13 +7,21 @@ const InitState = {
 
 const reducer = (state = InitState, action) => {
   switch (action.type) {
-    case "LOADING":
+    case "LOADING-OFF":
       return {
+        ...InitState,
         appLoading: false,
+      };
+
+    case "LOADING-ON":
+      return {
+        InitState,
+        appLoading: true,
       };
 
     case "HOME-BTN-VISIBLE":
       return {
+        ...InitState,
         homeBtnVisible: !state.homeBtnVisible,
       };
 

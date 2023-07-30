@@ -60,12 +60,12 @@
 
 @keyframes farIn {
   0% {
-    transform: scale(0.5);
+    transform: scale(0.2);
     opacity: 0;
   }
 
   100% {
-    transform: scale(1) skew(110rem);
+    transform: scale(1);
     opacity: 1;
   }
 }

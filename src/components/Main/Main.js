@@ -1,8 +1,6 @@
 import React from "react";
 import mainStyle from "./main.module.css";
 import { Link } from "react-router-dom";
-import MovieItem from "../MovieItem/MovieItem";
-import ListItem from "../List/ListItem";
 function Main(props) {
   return (
     <div className={mainStyle.main}>
