@@ -3,11 +3,11 @@ import movieItemStyle from "./MovieItem.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 function MovieItem(props) {
-  const [fetchError, setFetchError] = useState(false);
-  const [profileData, setProfileData] = useState(props.charactersData);
+  const [fetchError, setFetchError] = useState(null);
   const [charName, setCharName] = useState();
   const navigate = useNavigate();
   const { movieId } = useParams();
+  const profileData = props.charactersData;
 
   // Redux
   const dispatch = useDispatch();
@@ -26,12 +26,10 @@ function MovieItem(props) {
 
     try {
       const response = await Promise.all(characters.map((url) => fetch(url)));
-
       const data = await Promise.all(response.map((item) => item.json()));
       setCharName(data);
     } catch (error) {
       setFetchError(error.message);
-      console.log(error.message);
       return;
     }
     loadingOff();
@@ -43,6 +41,7 @@ function MovieItem(props) {
   //
 
   // modifying data to extract id and name from fetched data
+
   const charactersItem = profileData.find((item) => item.id === parseInt(movieId));
   const { characters: characters } = charactersItem;
 
